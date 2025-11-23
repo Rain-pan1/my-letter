@@ -7,21 +7,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Dancing+Script:wght@400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Ma Shan Zheng', cursive;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh; display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
             padding: 20px;
         }
+
+        /* 首页样式 */
         .container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 40px; border-radius: 20px;
+            padding: 40px;
+            border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            width: 100%; max-width: 500px;
+            width: 100%;
+            max-width: 500px;
             border: 1px solid rgba(255,255,255,0.2);
         }
+
         .header { text-align: center; margin-bottom: 30px; }
+
         .header h1 {
             font-size: 2.5em;
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -29,168 +37,244 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
+
         .header p { color: #666; font-size: 1.1em; }
+
         .form-group { margin-bottom: 20px; }
+
         label {
-            display: block; margin-bottom: 8px; color: #333;
-            font-weight: bold; font-size: 1.1em;
+            display: block; margin-bottom: 8px;
+            color: #333; font-weight: bold; font-size: 1.1em;
         }
+
         textarea, input, select {
-            width: 100%; padding: 15px;
-            border: 2px solid #e1e5e9; border-radius: 10px;
-            font-size: 16px; font-family: 'ZCOOL QingKe HuangYou', cursive;
-            transition: all 0.3s ease; background: rgba(255,255,255,0.8);
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'ZCOOL QingKe HuangYou', cursive;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.8);
         }
+
         textarea {
-            height: 200px; resize: vertical; font-size: 18px; line-height: 1.6;
+            height: 200px; resize: vertical;
+            font-size: 18px; line-height: 1.6;
         }
+
         textarea:focus, input:focus, select:focus {
-            border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
             outline: none;
         }
+
         button {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white; border: none; padding: 18px;
-            font-size: 1.2em; border-radius: 10px; cursor: pointer; width: 100%;
+            font-size: 1.2em; border-radius: 10px;
+            cursor: pointer; width: 100%;
             font-family: 'Ma Shan Zheng', cursive;
             transition: all 0.3s ease; margin-top: 10px;
         }
+
         button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
+
         .note { font-size: 0.9em; color: #888; margin-top: 5px; font-style: italic; }
+
         .decoration { text-align: center; margin: 20px 0; font-size: 2em; }
+
         .upload-info {
-            background: #e8f4fd; padding: 15px; border-radius: 10px; margin-top: 10px;
+            background: #e8f4fd;
+            padding: 15px; border-radius: 10px; margin-top: 10px;
             border-left: 4px solid #667eea;
         }
+
         .network-info {
-            background: #fff3cd; padding: 15px; border-radius: 10px; margin-top: 15px;
+            background: #fff3cd;
+            padding: 15px; border-radius: 10px; margin-top: 15px;
             border-left: 4px solid #ffc107; font-size: 0.9em;
         }
+
+        /* 成功页面样式 */
         .success-container {
             background: rgba(255, 255, 255, 0.95);
-            padding: 50px; border-radius: 20px; text-align: center;
+            padding: 50px; border-radius: 20px;
+            text-align: center;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             max-width: 700px; width: 100%;
         }
+
         .success-icon { font-size: 80px; margin-bottom: 20px; }
+
         .url-box {
-            background: #f8f9fa; border: 2px dashed #4CAF50; padding: 20px; margin: 20px 0;
-            border-radius: 10px; font-family: monospace; word-break: break-all;
-            font-size: 16px; color: #2E7D32; font-weight: bold;
+            background: #f8f9fa;
+            border: 2px dashed #4CAF50;
+            padding: 20px; margin: 20px 0; border-radius: 10px;
+            font-family: monospace; word-break: break-all; font-size: 16px;
+            color: #2E7D32; font-weight: bold;
         }
+
         .btn {
             background: linear-gradient(135deg, #4CAF50, #45a049);
-            color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px;
-            display: inline-block; margin: 10px; border: none; cursor: pointer;
-            font-family: 'Ma Shan Zheng', cursive; font-size: 1.1em;
-            transition: all 0.3s ease;
+            color: white; padding: 15px 30px; text-decoration: none;
+            border-radius: 10px; display: inline-block; margin: 10px;
+            border: none; cursor: pointer; font-family: 'Ma Shan Zheng', cursive;
+            font-size: 1.1em; transition: all 0.3s ease;
         }
+
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
         }
+
         .warning {
-            background: #FFF3CD; padding: 15px; border-radius: 8px; margin: 15px 0;
+            background: #FFF3CD;
+            padding: 15px; border-radius: 8px; margin: 15px 0;
             text-align: left; border: 1px solid #FFEAA7;
         }
+
         .link-type { font-size: 14px; color: #666; margin-bottom: 5px; }
+
         .network-links {
-            background: #d1ecf1; padding: 20px; border-radius: 10px; margin: 20px 0;
+            background: #d1ecf1;
+            padding: 20px; border-radius: 10px; margin: 20px 0;
             border-left: 4px solid #0c5460;
         }
+
+        /* 密码输入页面样式 */
         .password-container {
             background: rgba(255, 255, 255, 0.95);
             padding: 50px; border-radius: 20px; text-align: center;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             max-width: 400px; width: 100%;
         }
+
         .lock-icon { font-size: 60px; margin-bottom: 20px; color: #667eea; }
 
+        /* 信件页面样式 */
         .letter-wrapper { position: relative; max-width: 800px; width: 90%; margin: 40px auto; }
+
         .letter-container {
             background: linear-gradient(135deg, #fffef7, #fff9e6);
-            border: 2px solid #e8e4d9; padding: 80px 60px; position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.5) inset;
-            border-radius: 8px; animation: letterAppear 1.5s ease-out; z-index: 2;
+            border: 2px solid #e8e4d9;
+            padding: 80px 60px; position: relative;
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.1),
+                0 0 0 1px rgba(255,255,255,0.5) inset;
+            border-radius: 8px;
+            animation: letterAppear 1.5s ease-out;
+            z-index: 2;
         }
+
         @keyframes letterAppear {
             0% { opacity: 0; transform: translateY(50px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+
         .letter-header {
-            text-align: center; margin-bottom: 40px; font-family: 'Ma Shan Zheng', cursive;
+            text-align: center; margin-bottom: 40px;
+            font-family: 'Ma Shan Zheng', cursive;
             font-size: 24px; color: #d4af37; position: relative;
         }
-        .letter-header::before, .letter-header::after { content: "✨"; margin: 0 15px; font-size: 20px; }
-        .letter-content {
-            font-family: 'Noto Serif SC', serif; font-size: 22px; line-height: 2.2; color: #5c4b37;
-            text-align: justify; white-space: pre-wrap; font-weight: 400;
-            text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1); letter-spacing: 0.5px;
-            position: relative; z-index: 2;
+
+        .letter-header::before, .letter-header::after {
+            content: "✨"; margin: 0 15px; font-size: 20px;
         }
+
+        .letter-content {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px; line-height: 2.2; color: #5c4b37;
+            text-align: justify; white-space: pre-wrap; font-weight: 400;
+            text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px; position: relative; z-index: 2;
+        }
+
         .letter-container::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background:
                 linear-gradient(90deg, transparent 95%, rgba(0,0,0,0.03) 100%),
                 linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
-            background-size: 100% 2em, 100% 2em; pointer-events: none; z-index: 1;
+            background-size: 100% 2em, 100% 2em;
+            pointer-events: none; z-index: 1;
         }
+
         .letter-seal {
-            position: absolute; bottom: -25px; right: -25px; width: 120px; height: 120px;
+            position: absolute; bottom: -25px; right: -25px;
+            width: 120px; height: 120px;
             background: radial-gradient(circle at 30% 30%, #d4af37, #b8860b);
             border-radius: 50%; display: flex; justify-content: center; align-items: center;
             color: white; font-family: 'Ma Shan Zheng', cursive; font-size: 18px;
             transform: rotate(-15deg);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 0 5px rgba(255,255,255,0.3);
-            border: 3px solid rgba(255,255,255,0.8); z-index: 3;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.3),
+                0 0 0 5px rgba(255,255,255,0.3);
+            border: 3px solid rgba(255,255,255,0.8);
+            z-index: 3;
             animation: sealRotate 3s ease-in-out infinite alternate;
         }
+
         @keyframes sealRotate {
             0% { transform: rotate(-15deg) scale(1); }
             100% { transform: rotate(-25deg) scale(1.05); }
         }
+
         .letter-corner {
             position: absolute; width: 60px; height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2); opacity: 0.1; z-index: 1;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0.1; z-index: 1;
         }
         .corner-tl { top: 0; left: 0; border-radius: 0 0 100% 0; }
         .corner-tr { top: 0; right: 0; border-radius: 0 0 0 100%; }
         .corner-bl { bottom: 0; left: 0; border-radius: 0 100% 0 0; }
         .corner-br { bottom: 0; right: 0; border-radius: 100% 0 0 0; }
 
+        /* 飘落的花瓣效果 */
         .petal {
-            position: absolute; top: -50px; width: 20px; height: 20px;
+            position: absolute; top: -50px;
+            width: 20px; height: 20px;
             background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            border-radius: 50% 0 50% 50%; opacity: 0.7;
-            animation: fall linear infinite; z-index: 1;
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.7; animation: fall linear infinite; z-index: 1;
         }
+
         @keyframes fall {
             to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
 
+        /* 音乐提示样式 */
         .music-prompt {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            position: fixed; top: 20px; left: 50%;
+            transform: translateX(-50%);
             background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white; padding: 15px 25px; border-radius: 25px; z-index: 1000;
-            font-family: 'Ma Shan Zheng', cursive; font-size: 1.1em;
+            color: white; padding: 15px 25px; border-radius: 25px;
+            z-index: 1000; font-family: 'Ma Shan Zheng', cursive; font-size: 1.1em;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             text-align: center; cursor: pointer; transition: all 0.3s ease;
             border: 2px solid rgba(255,255,255,0.3);
         }
+
         .music-prompt:hover {
             transform: translateX(-50%) translateY(-2px);
             box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
         }
 
+        /* 响应式设计 */
         @media (max-width: 768px) {
             .letter-container { padding: 40px 30px; margin: 20px; }
             .letter-content { font-size: 18px; line-height: 2; }
             .letter-header { font-size: 20px; margin-bottom: 30px; }
-            .letter-seal { width: 80px; height: 80px; font-size: 14px; bottom: -15px; right: -15px; }
-            .music-prompt { font-size: 1em; padding: 12px 20px; top: 10px; }
+            .letter-seal {
+                width: 80px; height: 80px; font-size: 14px;
+                bottom: -15px; right: -15px;
+            }
+            .music-prompt {
+                font-size: 1em; padding: 12px 20px; top: 10px;
+            }
         }
 
         .page { display: none; }
@@ -279,7 +363,7 @@
                 <p>⚠️ <strong>重要提示：</strong></p>
                 <p>• 请保存好访问链接和密码</p>
                 <p>• 在指定时间后才能查看信件</p>
-                <p>• 背景音乐可能需要点击允许播放（手机浏览器限制自动播放）</p>
+                <p>• 背景音乐可能需要点击允许播放（浏览器限制自动播放）</p>
             </div>
 
             <button class="btn" onclick="copyLink()">📋 复制链接信息</button>
@@ -317,14 +401,17 @@
             </div>
         </div>
 
-        <audio id="background-music" loop style="display: none;"></audio>
+        <!-- 背景音乐（显示 controls 兜底） -->
+        <audio id="background-music" loop controls style="width:100%; max-width:360px; margin:20px auto; display:block;"></audio>
+
+        <!-- 飘落花瓣容器 -->
         <div id="petals-container"></div>
     </div>
 
     <script>
         /***********************
          * 1) 加密/解密工具（Web Crypto）
-         * 使用 AES-GCM + PBKDF2
+         * AES-GCM + PBKDF2
          ***********************/
         const enc = new TextEncoder();
         const dec = new TextDecoder();
@@ -360,7 +447,7 @@
 
         async function encryptLetter(letterObj, password) {
             const salt = crypto.getRandomValues(new Uint8Array(16));
-            const iv = crypto.getRandomValues(new Uint8Array(12)); // GCM 推荐12字节IV :contentReference[oaicite:0]{index=0}
+            const iv = crypto.getRandomValues(new Uint8Array(12)); // 推荐12字节IV
             const key = await deriveKey(password, salt);
 
             const plaintext = enc.encode(JSON.stringify(letterObj));
@@ -394,7 +481,7 @@
         /***********************
          * 2) 业务逻辑
          ***********************/
-        let currentLetter = null;  // 可能是 {encryptedPayload, name} 或者明文（预览用）
+        let currentLetter = null; // {encryptedPayload, name} 或明文预览
 
         const musicResources = {
             'yichengshanlu': 'yichengshanlu.mp3'
@@ -427,12 +514,13 @@
             const password = formData.get('password');
             const encryptedPayload = await encryptLetter(plaintextLetter, password);
 
-            // 分享链接：专属名放 query，密文放 hash
+            // 分享链接：同时放 query data + hash data（防止 hash 被吞）
             const baseUrl = window.location.href.split('?')[0].split('#')[0];
+            const payloadStr = encodeURIComponent(JSON.stringify(encryptedPayload));
             const shareUrl =
-                `${baseUrl}?name=${encodeURIComponent(letterId)}#data=${encodeURIComponent(JSON.stringify(encryptedPayload))}`;
+                `${baseUrl}?name=${encodeURIComponent(letterId)}&data=${payloadStr}#data=${payloadStr}`;
 
-            // 供本机立即预览
+            // 本机预览用明文
             currentLetter = { ...plaintextLetter, password };
 
             document.getElementById('letter-link').textContent = shareUrl;
@@ -462,7 +550,7 @@
             showPage('password-page');
         }
 
-        // 密码验证（如果是 URL 来的 => 先解密；如果是本机预览 => 直接用明文）
+        // 密码验证（URL 打开 -> 解密；本机预览 -> 校验密码）
         document.getElementById('password-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -476,11 +564,12 @@
                     // 来自分享链接
                     letterObj = await decryptLetter(currentLetter.encryptedPayload, inputPassword);
                 } else {
-                    // 本机刚创建的预览
+                    // 本机预览
                     if (inputPassword !== currentLetter.password) throw new Error("wrong password");
                     letterObj = currentLetter;
                 }
 
+                // 时间锁
                 const currentTime = new Date();
                 const accessTime = new Date(letterObj.access_time);
 
@@ -494,6 +583,7 @@
                     return;
                 }
 
+                // 显示信件
                 document.getElementById('letter-content').textContent = letterObj.content;
                 playBackgroundMusic(letterObj.music_choice);
                 createPetals();
@@ -505,48 +595,63 @@
             }
         });
 
+        /***********************
+         * 3) 音乐播放（更稳版本）
+         ***********************/
         function playBackgroundMusic(musicChoice) {
-            if (musicChoice === 'none') return;
+            if (musicChoice === 'none') {
+                console.log('未选择背景音乐');
+                return;
+            }
+
             const audio = document.getElementById('background-music');
             const musicUrl = musicResources[musicChoice];
-
             audio.src = musicUrl;
-            audio.volume = 0.4;
+            audio.volume = 0.6;
+
             audio.load();
 
-            createMusicPrompt(audio);
-        }
-
-        function createMusicPrompt(audio) {
-            const existingPrompt = document.querySelector('.music-prompt');
-            if (existingPrompt) existingPrompt.remove();
-
-            const prompt = document.createElement('div');
-            prompt.className = 'music-prompt';
-            prompt.innerHTML = '🎵 点击播放 毛不易 - 一程山路';
-            prompt.onclick = function() {
-                playAudio(audio);
-                prompt.remove();
-            };
-            document.body.appendChild(prompt);
-
-            setTimeout(() => {
-                playAudio(audio).then(success => {
-                    if (success && prompt.parentNode) prompt.remove();
-                });
-            }, 1500);
-
-            setTimeout(() => {
-                if (prompt.parentNode) prompt.remove();
-            }, 15000);
-        }
-
-        function playAudio(audio) {
-            return new Promise((resolve) => {
-                audio.play().then(() => resolve(true)).catch(() => resolve(false));
+            audio.play().then(() => {
+                console.log('音乐自动播放成功');
+                removeMusicPrompt();
+            }).catch(err => {
+                console.log('自动播放被阻止，需要用户点击:', err);
+                createMusicPrompt(audio);
             });
         }
 
+        function createMusicPrompt(audio) {
+            removeMusicPrompt();
+
+            const prompt = document.createElement('div');
+            prompt.className = 'music-prompt';
+            prompt.innerHTML = '🎵 点击播放/暂停 一程山路';
+
+            prompt.onclick = async function() {
+                try {
+                    if (audio.paused) {
+                        await audio.play();
+                        prompt.innerHTML = '⏸ 点击暂停 一程山路';
+                    } else {
+                        audio.pause();
+                        prompt.innerHTML = '🎵 点击播放 一程山路';
+                    }
+                } catch (e) {
+                    alert('播放失败：请检查浏览器是否静音，或刷新页面重试');
+                }
+            };
+
+            document.body.appendChild(prompt);
+        }
+
+        function removeMusicPrompt() {
+            const existingPrompt = document.querySelector('.music-prompt');
+            if (existingPrompt) existingPrompt.remove();
+        }
+
+        /***********************
+         * 4) 花瓣效果
+         ***********************/
         function createPetals() {
             const container = document.getElementById('petals-container');
             container.innerHTML = '';
@@ -573,19 +678,31 @@
                     'linear-gradient(135deg, #d4fc79, #96e6a1)'
                 ];
                 petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+
                 container.appendChild(petal);
             }
         }
 
-        // 读取 URL 的密文
+        /***********************
+         * 5) URL 参数处理（防 hash 被吞）
+         ***********************/
         function checkUrlParams() {
             const urlParams = new URLSearchParams(window.location.search);
             const name = urlParams.get('name');
 
-            const hash = window.location.hash;
-            const match = hash.match(/data=([^&]+)/);
-            if (match) {
-                const payloadStr = decodeURIComponent(match[1]);
+            // 先从 query 里找 data
+            let payloadStr = urlParams.get('data');
+
+            // 如果 query 没有，再从 hash 找
+            if (!payloadStr) {
+                const hash = window.location.hash;
+                const match = hash.match(/data=([^&]+)/);
+                if (match) payloadStr = decodeURIComponent(match[1]);
+            } else {
+                payloadStr = decodeURIComponent(payloadStr);
+            }
+
+            if (payloadStr) {
                 currentLetter = {
                     encryptedPayload: JSON.parse(payloadStr),
                     name
@@ -596,10 +713,12 @@
 
         window.addEventListener('load', checkUrlParams);
 
-        document.getElementById('background-music').addEventListener('error', function() {
+        // 音乐加载错误处理
+        document.getElementById('background-music').addEventListener('error', function(e) {
+            console.log('音乐加载失败:', e);
             const prompt = document.querySelector('.music-prompt');
             if (prompt) {
-                prompt.innerHTML = '❌ 一程山路加载失败，请确保 yichengshanlu.mp3 文件存在';
+                prompt.innerHTML = '❌ 音乐加载失败，请确保 yichengshanlu.mp3 文件存在';
                 prompt.style.background = 'linear-gradient(135deg, #f44336, #d32f2f)';
             }
         });
